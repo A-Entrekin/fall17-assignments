@@ -56,14 +56,17 @@ class MyStringTest {
 	void testReplace() {
 		 MyString start = new MyString("Three Blind Mice");
 		 MyString desired = new MyString("Three White Mice");
-		 assertEquals(start.replace(new MyString("Blind"), new MyString("White")), desired);
+		 MyString replacement = start.replace(new MyString("Blind"), new MyString("White"));
+		 assertTrue(replacement.equals(desired));
 	}
 
 	@Test
 	void testReplaceAll() {
 		MyString start = new MyString("foo foo fo");
 		MyString desired = new MyString("bar baz bar baz fo");
-		assertEquals(start.replaceAll(new MyString("foo"), new MyString("bar baz")), desired);
+		MyString replacement = start.replaceAll(new MyString("foo"), new MyString("bar baz"));
+		System.out.println(replacement.getString());
+		assertTrue(replacement.equals(desired));
 	}
 
 	@Test

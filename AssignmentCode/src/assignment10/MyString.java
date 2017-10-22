@@ -46,7 +46,7 @@ public class MyString {
 		return -1;
 	}
 	public int indexOf(MyString s) {
-		for(int i = 0; i + s.length < length; i++) {
+		for(int i = 0; i + s.length <= length; i++) {
 			if (subString(i, i + s.length).equals(s)) {
 				return i;
 			}
@@ -61,7 +61,7 @@ public class MyString {
 	public MyString replace(MyString target, MyString replacement) {
 		int index = indexOf(target);
 		if ( index == -1) return this;
-		else return subString(0, index).concat(replacement).concat(subString(index + 1, length));
+		else return subString(0, index).concat(replacement).concat(subString(index + target.length, length));
 		
 	}
 	
