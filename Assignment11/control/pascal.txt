@@ -1,0 +1,8 @@
+Please enter the name of the file
+Count: 15.000000
+Sum: 31.000000
+Largest: 6.000000
+Smallest: 1.000000
+Range: 5.000000
+Average: 2.066667
+
