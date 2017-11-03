@@ -1,0 +1,29 @@
+Please enter the name of the file
+Error: fish isn't a number
+Error: fish isn't a number
+Error: red isn't a number
+Error: fish isn't a number
+Error: blue isn't a number
+Error: fish isn't a number
+Error: ... isn't a number
+Error: Some isn't a number
+Error: have isn't a number
+Error: feet isn't a number
+Error: And isn't a number
+Error: some isn't a number
+Error: have isn't a number
+Error: Some isn't a number
+Error: have isn't a number
+Error: feet isn't a number
+Error: And isn't a number
+Error: some isn't a number
+Error: have isn't a number
+Error: more. isn't a number
+Error: ... isn't a number
+Count: 5.0
+Sum: 15.0
+Largest: 6.0
+Smallest: 1.0
+Range: 5.0
+Average: 3.0
+
