@@ -1,0 +1,119 @@
+
+public class CopyOfMyString {
+	private char[] array;
+	
+	public CopyOfMyString(){
+		array = new char[0];
+	}
+	
+	public CopyOfMyString(char[] array){
+		this.array = new char[array.length];
+		for (int i = 0; i < array.length; i++){
+			this.array[i] = array[i];
+		}
+	}
+	public int getLength(){
+		return array.length;
+	}
+	
+	public void print(){
+		System.out.print(array);
+	}
+	
+	public void println(){
+		System.out.println(array);
+	}
+	//Module Two
+	
+	public char charAt(int index){
+		return array[index];
+	}
+	
+	public char[] toCharArray(){
+		char[] dup = new char[array.length];
+		for (int i = 0; i < array.length; i++){
+			dup[i] = array[i];
+		}
+		return dup;
+	}
+	
+	public int indexOf(char c){
+		for( int i = 0; i < array.length; i++){
+			if (array[i] == c) return i;
+		}
+		return -1;
+	}
+	
+	public boolean equals(CopyOfMyString otherString){
+		if (this.getLength() != otherString.getLength()) return false;
+		for (int i = 0; i < getLength(); i++){
+			if (array[i] != otherString.array[i]){
+				return false;
+			}
+		}
+		return true;
+	}
+	//Module Three
+	
+	public CopyOfMyString substring(int i, int j){
+		int len = j - i;
+		char dup[] = new char[len];
+		for (int k = i; k < j; k++){
+			dup[k-i] = array[k];
+		}
+		return new CopyOfMyString(dup);
+	}
+	public boolean startsWith(CopyOfMyString otherString){
+		return substring(0, otherString.getLength()).equals(otherString);
+	}
+	public CopyOfMyString concat(CopyOfMyString otherString){
+		char dup[] = new char[getLength() + otherString.getLength()];
+		for (int i = 0; i < this.getLength(); i++){
+			dup[i] = array[i];
+		}
+		for (int i = array.length; i < dup.length; i++){
+			dup[i] = otherString.array[i - array.length];
+		}
+		return new CopyOfMyString(dup);
+	}
+	
+	//Module Four
+	
+	public CopyOfMyString trim(){
+		int i, j;
+		for (i = 0; i < array.length && 
+				(array[i] == ' ' || 
+				 array[i] == '\t'||
+				 array[i] == '\n'); i++);
+		for (j = array.length; j > i && j-1 >= 0 && (
+				 array[j-1] == ' ' || 
+				 array[j-1] == '\t'||
+				 array[j-1] == '\n'); j--);
+		
+		return substring(i, j);
+	}
+	
+	public CopyOfMyString[] split(CopyOfMyString delim){
+		CopyOfMyString[] ans = new CopyOfMyString[0];
+		if (delim.getLength() == 0) return ans;
+		int index = 0;
+		int lastDelim = 0;
+		while (index + delim.getLength() < getLength()){
+			if (substring(index, index + delim.getLength()).equals(delim)){
+				CopyOfMyString[] nans = new CopyOfMyString[ans.length + 1];
+				for (int i = 0; i < ans.length; i++) nans[i] = ans[i];
+				nans[ans.length] = substring(lastDelim, index);
+				lastDelim = index = index + delim.getLength();
+				ans = nans;
+			}
+			else index++;
+		}
+		if (index != getLength()){
+			CopyOfMyString[] nans = new CopyOfMyString[ans.length + 1];
+			for (int i = 0; i < ans.length; i++) nans[i] = ans[i];
+			nans[ans.length] = substring(lastDelim, getLength());
+			ans = nans;
+		}
+		return ans;
+	}
+}
